@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="562.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BubbleSortController">
+   <children>
+      <Pane prefHeight="75.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="7.0" layoutY="8.0" text="Bubble Sorting Algorithm">
+               <font>
+                  <Font name="Forte" size="53.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="75.0" prefHeight="390.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="14.0" layoutY="4.0" text="No sorted array">
+               <font>
+                  <Font name="Forte" size="18.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableView_NoSortedArray" layoutX="7.0" layoutY="23.0" prefHeight="106.0" prefWidth="585.0" />
+            <Pane layoutX="5.0" layoutY="129.0" prefHeight="258.0" prefWidth="585.0">
+               <children>
+                  <Label layoutX="20.0" layoutY="14.0" text="Bubble Sorted array">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="42.0" text="Total iterations permorfed:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txf_iterations" layoutX="267.0" layoutY="42.0" prefHeight="25.0" prefWidth="102.0" />
+                  <TableView fx:id="tableView_BubbleSortedResults" layoutX="6.0" layoutY="77.0" prefHeight="173.0" prefWidth="573.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutY="452.0" prefHeight="96.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="btn_Start" layoutX="143.0" layoutY="36.0" mnemonicParsing="false" onAction="#StartOnAction" prefHeight="38.0" prefWidth="111.0" text="Start">
+               <font>
+                  <Font name="Forte" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Randomize" layoutX="309.0" layoutY="36.0" mnemonicParsing="false" onAction="#RandomizeOnAction" prefHeight="38.0" prefWidth="111.0" text="Randomize">
+               <font>
+                  <Font name="Forte" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

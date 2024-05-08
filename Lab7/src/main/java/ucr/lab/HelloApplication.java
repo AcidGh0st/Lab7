@@ -20,6 +20,7 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+    //prueba commit
     public static void main(String[] args) {
         launch();
     }
