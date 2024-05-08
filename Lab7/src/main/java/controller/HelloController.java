@@ -48,7 +48,7 @@ public class HelloController {
 
     @FXML
     void countingSortOnAction(ActionEvent event) {
-        loadPage("countingSort.fxml");
+        loadPage("CountingSort.fxml");
     }
 
     @FXML
@@ -63,17 +63,17 @@ public class HelloController {
 
     @FXML
     void quixkSortOnAction(ActionEvent event) {
-        loadPage("quickSort.fxml");
+        loadPage("QuickSort.fxml");
     }
 
     @FXML
     void radixSortOnAction(ActionEvent event) {
-        loadPage("radixSort.fxml");
+        loadPage("RadixSort.fxml");
     }
 
     @FXML
     void selectionSortOnAction(ActionEvent event) {
-        loadPage("selectionSort.fxml");
+        loadPage("SelectionSort.fxml");
     }
 
     @FXML
