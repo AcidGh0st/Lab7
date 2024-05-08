@@ -142,4 +142,34 @@ class SortingTest {
     }
 
 
+    @Test
+    public void testBinarySearchRecursive() {
+        int[] sortedArray = {0, 7, 4, 6, 9, 10, 12, 14, 50, 34, 20, 21, 28, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 1, 3, 15, 24};
+        Search search = new Search();
+
+        for (int value = 0; value < 50; value++) {
+            int pos = search.binarySearch(sortedArray, value, 0, sortedArray.length - 1);
+
+            if (pos != -1 ) {
+                System.out.println("The element [" + value + "] exists at position: " + pos);
+            } else {
+                System.out.println("The element [" + value + "] does not exist in array");
+            }
+        }
+
+        System.out.println(" ");
+        System.out.println("Binary Search Iterative");
+
+        for (int value = 0; value < 50; value++) {
+            int posIterative = search.binarySearch(sortedArray, value);
+            if (posIterative != -1) {
+                System.out.println("The element [" + value + "] exists at position: " + posIterative);
+            } else {
+                System.out.println("The element [" + value + "] does not exist in array");
+            }
+        }
+    }
+
+
+
 }

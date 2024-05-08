@@ -11,7 +11,9 @@ package domain;
  */
 public class Elementary {
     public void bubbleSort(int a[]){
+
         for(int i=1;i<a.length;i++)
+
             for(int j=0;j<a.length-i;j++){
                 if(a[j]>a[j+1]){
                     int aux=a[j];
