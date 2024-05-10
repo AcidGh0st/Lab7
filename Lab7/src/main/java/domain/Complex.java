@@ -13,6 +13,12 @@ import java.util.Random;
  */
 public class Complex {
     private int counterRadix[];
+    private int recursiveCalls;
+
+    public int getRecursiveCalls() {
+        return recursiveCalls;
+    }
+
     public void quickSort(int arr[], int low, int high){
         int i=low;
         int j=high;
@@ -81,11 +87,13 @@ public class Complex {
     }
     
     public void mergeSort(int a[], int tmp[], int low, int high){
+       recursiveCalls = 0;
         if(low<high){
             int center = (low+high)/2;
             mergeSort(a,tmp,low,center );
             mergeSort(a,tmp,center+1,high);
             merge(a,tmp,low,center+1,high);
+            recursiveCalls++;
         }//if
     }
         
