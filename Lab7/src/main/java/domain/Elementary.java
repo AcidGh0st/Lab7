@@ -11,7 +11,11 @@ package domain;
  */
 public class Elementary {
 
-    private  int it_total;
+
+    private String minString =" ";
+    private String minIndexString= " ";
+    private int it_total =0;
+
 
     /*
     public static void setIt_total(){
@@ -70,22 +74,33 @@ public class Elementary {
             it_total++;
 	    }//for i
     }
-    
-    public void selectionSort(int a[]){
-        for(int i=0;i<a.length-1;i++){
-            int min=a[i];
-            int minIndex=i;
-            for(int j=i+1;j<a.length;j++){
-                if(a[j]<min){
-                    min=a[j];
-                    minIndex=j;
-                }//if
-            }//for j
-            a[minIndex]=a[i];
-            a[i]=min;
-        }//for i
+
+    public void selectionSort(int a[]) {
+        // Limpiar el valor anterior
+        it_total = 0;
+        minString = "";
+        minIndexString = "";
+        for (int i = 0; i < a.length - 1; i++) {
+            int min = a[i];
+            int minIndex = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] < min) {
+                    min = a[j];
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                int temp = a[i];
+                a[i] = a[minIndex];
+                a[minIndex] = temp;
+            }
+            it_total++;
+            minString += min + " ";
+            minIndexString += minIndex + " ";
+        }
     }
-    
+
+
     public void countingSort(int a[]) {
         int max = util.Utility.maxArray(a); //va de 0 hasta el elemento maximo
         // create buckets
@@ -104,4 +119,12 @@ public class Elementary {
         }//for i
     }
 
+
+    public String getMinIndex() {
+        return minIndexString;
+    }
+
+    public String getMin() {
+        return minString;
+    }
 }

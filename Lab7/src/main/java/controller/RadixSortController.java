@@ -11,6 +11,8 @@ public class RadixSortController
     @javafx.fxml.FXML
     private TableView tableView_noSortedArray;
     @javafx.fxml.FXML
+    private TableView tableView_SelectionSortedArray;
+    @javafx.fxml.FXML
     private TableView tableView_SortedArray;
     @javafx.fxml.FXML
     private Button btn_Randomize;
@@ -25,10 +27,12 @@ public class RadixSortController
 
     @javafx.fxml.FXML
     public void initialize() {
+
     }
 
     @javafx.fxml.FXML
     public void StartOnAction(ActionEvent actionEvent) {
+
     }
 
     @javafx.fxml.FXML
