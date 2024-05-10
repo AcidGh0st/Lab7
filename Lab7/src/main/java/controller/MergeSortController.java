@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
+import java.util.List;
 import java.util.Random;
 
 public class MergeSortController {
@@ -51,6 +52,7 @@ public class MergeSortController {
         }
         tableView_noSortedArray.getItems().add(rowData);
         tableView_MergeSortedResults.getItems().add(rowData);
+        tableView_TempArray.getItems().add(rowData);
 
         // Inicializar elementary
 
@@ -87,15 +89,30 @@ public class MergeSortController {
             tableView_MergeSortedResults.getColumns().add(column);
         }
 
+        // Crear las columnas del TableView de forma dinámica
+        for (int i = 0; i < 200; i++) {
+            TableColumn<ObservableList<String>, String> column = new TableColumn<>(String.valueOf(i));
+
+            int columnIndex = i;
+
+            // Configurar la celda para obtener los valores de las celdas de la columna
+            column.setCellValueFactory(cellData -> {
+                ObservableList<String> row = cellData.getValue();
+                return new SimpleStringProperty(row.get(columnIndex));
+            });
+
+            // Agregar cada TableColumn creado al conjunto de columnas
+            tableView_TempArray.getColumns().add(column);
+        }
+
 
     }
 
     @javafx.fxml.FXML
     public void StartOnAction(ActionEvent actionEvent) {
-
         // Limpiar la tabla de datos ordenados antes de agregar nuevas filas
         tableView_MergeSortedResults.getItems().clear();
-
+        tableView_TempArray.getItems().clear(); // Limpiar tableView_TempArray
 
         // Obtener los valores de las celdas de la tabla no ordenada y almacenarlos en un arreglo
         ObservableList<String> rowData = (ObservableList<String>) tableView_noSortedArray.getItems().get(0);
@@ -114,26 +131,40 @@ public class MergeSortController {
             }
         }
 
-        // Ordenar el arreglo utilizando Selection Sort
+        // Ordenar el arreglo utilizando Merge Sort
         Complex c = new Complex();
-        //Elementary.setIt_total();
-        c.mergeSort(dataArray, new int[dataArray.length], 0, dataArray.length - 1);
+        int[] tempArray = new int[dataArray.length]; // Crear un arreglo temporal para almacenar los valores durante el proceso de merge
+        c.mergeSort(dataArray, tempArray, 0, dataArray.length - 1);
 
         // Crear una nueva lista para los datos ordenados
         ObservableList<String> sortedRowData = FXCollections.observableArrayList();
 
+        // Obtener los valores de high y low
+        List<Integer> highValues = c.getHighValues();
+        List<Integer> lowValues = c.getLowValues();
+
+        // Mostrar los valores en los campos de texto
+        txf_high.setText(highValues.toString());
+        txf_low.setText(lowValues.toString());
         // Convertir los valores ordenados a String y agregarlos a la lista
         for (int i = 0; i < dataArray.length; i++) {
             sortedRowData.add(String.valueOf(dataArray[i]));
         }
 
-
-        // Agregar los datos ordenados a la tabla tableView_BubbleSortedResults
+        // Agregar los datos ordenados a la tabla tableView_MergeSortedResults
         tableView_MergeSortedResults.getItems().add(sortedRowData);
+
+        // Obtener el arreglo temporal de merge y mostrarlo en tableView_TempArray
+        ObservableList<String> tempRowData = FXCollections.observableArrayList();
+        for (int i = 0; i < tempArray.length; i++) {
+            tempRowData.add(String.valueOf(tempArray[i]));
+        }
+        tableView_TempArray.getItems().add(tempRowData);
 
         txf_RecursiveCalls.setText(String.valueOf(c.getRecursiveCalls()));
 
     }
+
 
     @javafx.fxml.FXML
     public void RandomizeOnAction(ActionEvent actionEvent) {

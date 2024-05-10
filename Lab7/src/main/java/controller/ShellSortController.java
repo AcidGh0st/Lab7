@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
+import java.util.List;
 import java.util.Random;
 
 public class ShellSortController
@@ -101,7 +102,7 @@ public class ShellSortController
         // Obtener los valores de las celdas de la tabla no ordenada y almacenarlos en un arreglo
         ObservableList<String> rowData = (ObservableList<String>) tableView_noSortedArray.getItems().get(0);
         int arraySize = rowData.size();
-        //int[] dataArray = new int[arraySize];
+
 
         // Convertir los valores de String a enteros y almacenarlos en el arreglo
         for (int i = 0; i < arraySize; i++) {
@@ -118,6 +119,7 @@ public class ShellSortController
         Complex c = new Complex();
         c.shellSort(dataArray);
 
+
         // Crear una nueva lista para los datos ordenados
         ObservableList<String> sortedRowData = FXCollections.observableArrayList();
 
@@ -127,11 +129,20 @@ public class ShellSortController
         }
 
 
-
-
         // Agregar los datos ordenados a la tabla tableView_BubbleSortedResults
         tableView_SortedArray.getItems().add(sortedRowData);
 
+        // Obtener los valores de gap de la instancia de Complex
+        List<Integer> gapN2Values = c.getGapN2Values();
+        List<Integer> gapArray1Values = c.getGapArray1Values();
+        List<Integer> gapArray2Values = c.getGapArray2Values();
+        List<Integer> gapArray3Values = c.getGapArray3Values();
+
+        // Mostrar los valores de gap en los campos de texto correspondientes
+        txf_grapN2.setText(gapN2Values.toString()); // Muestra todos los números que pasaron por gapN2
+        txf_grapArray1.setText(gapArray1Values.toString()); // Muestra todos los números que pasaron por gapArray1
+        txf_grapArray2.setText(gapArray2Values.toString()); // Muestra todos los números que pasaron por gapArray2
+        txf_grapArray3.setText(gapArray3Values.toString()); // Muestra todos los números que pasaron por gapArray3
 
 
     }
