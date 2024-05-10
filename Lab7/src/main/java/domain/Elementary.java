@@ -10,24 +10,55 @@ package domain;
  * @author Profesor Lic. Gilberth Chaves A.
  */
 public class Elementary {
+
+    private  int it_total;
+
+    /*
+    public static void setIt_total(){
+
+        it_total=0;
+
+    }
+
+     */
+    public  int getItTotal(){
+
+        return it_total;
+    }
     public void bubbleSort(int a[]){
 
-        for(int i=1;i<a.length;i++)
+        it_total=0;
 
-            for(int j=0;j<a.length-i;j++){
-                if(a[j]>a[j+1]){
-                    int aux=a[j];
-                    a[j]=a[j+1];
-                    a[j+1]=aux;
+        for(int i=1;i<a.length;i++) {
+
+
+            for (int j = 0; j < a.length - i; j++) {
+
+
+                if (a[j] > a[j + 1]) {
+                    int aux = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = aux;
+
+
                 }//if
+
+
             }//for j
+            it_total++;
+
+        }
+
     }
     
     public void improvedBubbleSort(int a[]){
+        it_total=0;
+
 	    boolean swapped = true; //intercambiado
 	    for(int i=1;swapped;i++){
             swapped = false;
             for(int j=0;j<a.length-i;j++){
+
                 if(a[j]>a[j+1]){
                     int aux=a[j];
                     a[j]=a[j+1];
@@ -35,6 +66,8 @@ public class Elementary {
                     swapped = true;
                 }//if
             }//for j
+
+            it_total++;
 	    }//for i
     }
     

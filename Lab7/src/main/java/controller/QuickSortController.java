@@ -1,5 +1,6 @@
 package controller;
 
+import domain.Complex;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
@@ -23,15 +24,22 @@ public class QuickSortController
     @javafx.fxml.FXML
     private TextField txf_minIndex;
 
-    @javafx.fxml.FXML
-    public void initialize() {
-    }
 
     @javafx.fxml.FXML
-    public void StartOnAction(ActionEvent actionEvent) {
+    public void initialize() {
+        // Initialize TableView (if needed)
     }
 
     @javafx.fxml.FXML
     public void RandomizeOnAction(ActionEvent actionEvent) {
+
     }
+
+    @javafx.fxml.FXML
+    public void StartOnAction(ActionEvent actionEvent) {
+
+    }
+
+
+
 }

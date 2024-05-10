@@ -25,11 +25,12 @@ public class BubbleSortController
     @javafx.fxml.FXML
     private TextField txf_iterations;
 
-    Elementary e= new Elementary();
+    private int [] dataArray;
+
     @javafx.fxml.FXML
     public void initialize() {
 
-
+        this.dataArray=new int[200];
         // Ajustar las columnas al tamaño de la tabla
 //        tableView_NoSortedArray.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -76,6 +77,10 @@ public class BubbleSortController
             // Agregar cada TableColumn creado al conjunto de columnas
             tableView_BubbleSortedResults.getColumns().add(column);
         }
+
+
+
+
     }
 
 
@@ -84,12 +89,11 @@ public class BubbleSortController
         // Limpiar la tabla de datos ordenados antes de agregar nuevas filas
         tableView_BubbleSortedResults.getItems().clear();
 
-        //pane2_Sorted.setVisible(true);
 
         // Obtener los valores de las celdas de la tabla no ordenada y almacenarlos en un arreglo
         ObservableList<String> rowData = (ObservableList<String>) tableView_NoSortedArray.getItems().get(0);
         int arraySize = rowData.size();
-        int[] dataArray = new int[arraySize];
+        //int[] dataArray = new int[arraySize];
 
         // Convertir los valores de String a enteros y almacenarlos en el arreglo
         for (int i = 0; i < arraySize; i++) {
@@ -104,6 +108,8 @@ public class BubbleSortController
         }
 
         // Ordenar el arreglo utilizando Selection Sort
+        Elementary e= new Elementary();
+        //Elementary.setIt_total();
         e.bubbleSort(dataArray);
 
         // Crear una nueva lista para los datos ordenados
@@ -120,6 +126,7 @@ public class BubbleSortController
         // Agregar los datos ordenados a la tabla tableView_BubbleSortedResults
         tableView_BubbleSortedResults.getItems().add(sortedRowData);
 
+        txf_iterations.setText(String.valueOf(e.getItTotal()));
 
     }
 

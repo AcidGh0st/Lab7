@@ -53,7 +53,7 @@ public class HelloController {
 
     @FXML
     void improvedBubbleSortOnAction(ActionEvent event) {
-        loadPage("improvedBubbleSort.fxml");
+        loadPage("Improved_BubbleSort.fxml");
     }
 
     @FXML
